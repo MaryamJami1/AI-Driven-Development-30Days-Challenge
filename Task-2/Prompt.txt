@@ -1,0 +1,29 @@
+Write a clean, well-documented email validation function in Python (no external libraries, only standard library) that meets ALL of the following requirements:
+
+The function should be named `validate_email(email: str) -> tuple[bool, str]`
+- It must return a tuple: (is_valid: bool, message: str)
+- If the email is valid → return (True, "Email is valid")
+- If invalid → return (False, specific error message)
+
+Strict validation rules to enforce:
+1. The email MUST contain exactly one "@" symbol
+2. There must be at least one character before the "@"
+3. There must be a domain after the "@" (local-part@domain)
+4. The domain MUST contain at least one "." after the "@"
+5. The domain MUST end with a valid top-level domain (TLD) of at least 2 characters (e.g., .com, .org, .co.uk, .edu, .io, etc.)
+6. No whitespace allowed anywhere
+7. Only allow common printable characters typically valid in emails letters, digits, and these symbols: . _ % + - in the local part; letters, digits, hyphens, and dots in the domain
+
+Return clear, user-friendly error messages for each possible failure case, for example:
+- "Email cannot be empty"
+- "Email must contain exactly one '@' symbol"
+- "Missing username before '@'"
+- "Missing domain after '@'"
+- "Domain must contain a dot (.)"
+- "Top-level domain must be at least 2 characters long (e.g., .com, .org)"
+- "Invalid characters detected"
+- "Whitespace is not allowed"
+
+Also include 8–10 example test cases at the end (both valid and invalid emails) showing the function output.
+
+Make the code production-ready, readable, and add helpful comments.
