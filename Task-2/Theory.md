@@ -32,7 +32,7 @@ Modern software is large and complex. If you only think about individual lines o
 
 
 
-### Key Concepts (Simple & Short)
+### Key Concepts
 
 | Concept                  | Simple Explanation |
 |--------------------------|---------------------|
