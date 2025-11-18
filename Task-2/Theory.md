@@ -31,6 +31,21 @@ Modern software is large and complex. If you only think about individual lines o
 
 
 
+
+### Key Concepts (Simple & Short)
+
+| Concept                  | Simple Explanation |
+|--------------------------|---------------------|
+| **3-Layer Architecture** | Three clean layers: Models (AI brain) → IDEs (your workspace) → Agents (smart helpers that run tasks) |
+| **Vibe Coding**          | Just jumping in and coding by feeling — no plan, no specs |
+| **Specification-Driven Development (SDD)** | Write clear, exact instructions first, then code follows those rules |
+| **The Nine Pillars**     | A full system (tests, AI tools, specs, agents, etc.) that lets one developer work like a whole team |
+| **M-Shaped Developer**   | Expert in 2–4 related skills; AI fills the gaps so you become super strong in many areas |
+| **Development Agents**   | Smart AI tools (like Gemini CLI or Claude) that can do big tasks on their own when you give clear orders |
+
+
+
+
 # Reflection
 This task shows how fast the developer job is changing in the AI age.  
 Tools like the Nine Pillars, Spec-Driven Development, and AI agents aren’t just helpers they completely change how we plan, build, and maintain software.  
