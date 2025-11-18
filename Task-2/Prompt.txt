@@ -1,29 +1,24 @@
-Write a clean, well-documented email validation function in Python (no external libraries, only standard library) that meets ALL of the following requirements:
+CLI prompt:
+Write a single, well-written paragraph that serves as a complete technical specification for an email validation function in a backend application. The function must:
+- Check that the email contains exactly one "@" symbol
+- Ensure there is at least one character before the "@"
+- Ensure there is a domain after the "@" that contains at least one "." 
+- Validate that the top-level domain (after the last ".") is between 2 and 63 characters and contains only letters
+- Support common TLDs such as .com, .org, .net, .io, .co.uk, etc. (no hardcoded list required, just reasonable validation)
+- Return an object with { isValid: boolean } and { error: string | null } that provides clear, user-friendly error messages (examples: "Email is missing the @ symbol", "Invalid domain name", "Top-level domain is too short", etc.)
+- Be case-insensitive
+- Trim whitespace automatically
 
-The function should be named `validate_email(email: str) -> tuple[bool, str]`
-- It must return a tuple: (is_valid: bool, message: str)
-- If the email is valid → return (True, "Email is valid")
-- If invalid → return (False, specific error message)
+Write only the one-paragraph specification, no code, no bullet points, no extra text.
 
-Strict validation rules to enforce:
-1. The email MUST contain exactly one "@" symbol
-2. There must be at least one character before the "@"
-3. There must be a domain after the "@" (local-part@domain)
-4. The domain MUST contain at least one "." after the "@"
-5. The domain MUST end with a valid top-level domain (TLD) of at least 2 characters (e.g., .com, .org, .co.uk, .edu, .io, etc.)
-6. No whitespace allowed anywhere
-7. Only allow common printable characters typically valid in emails letters, digits, and these symbols: . _ % + - in the local part; letters, digits, hyphens, and dots in the domain
 
-Return clear, user-friendly error messages for each possible failure case, for example:
-- "Email cannot be empty"
-- "Email must contain exactly one '@' symbol"
-- "Missing username before '@'"
-- "Missing domain after '@'"
-- "Domain must contain a dot (.)"
-- "Top-level domain must be at least 2 characters long (e.g., .com, .org)"
-- "Invalid characters detected"
-- "Whitespace is not allowed"
 
-Also include 8–10 example test cases at the end (both valid and invalid emails) showing the function output.
 
-Make the code production-ready, readable, and add helpful comments.
+
+CLI Output:
+The email validation function shall accept a string input and return an object containing an isValid boolean and an error string (null if valid). It must first trim whitespace from the input and perform validation in a case-insensitive manner. 
+The function must verify the presence of exactly one "@" character, with at least one non-whitespace character before it and after it. Following the "@", it must confirm the existence of at least one "." in the domain portion, ensuring the top-level domain (the substring after the final ".") 
+consists solely of letters and is between 2 and 63 characters in length. 
+Common country-code and generic top-level domains such as .com, .org, .net, .io, and .co.uk are implicitly supported through these rules without maintaining an exhaustive whitelist.
+If any check fails, the function must return isValid: false along with a clear, human-readable error message in the error field (e.g., "Email must contain exactly one @ symbol", "Local part cannot be empty", "Invalid domain format", "Top-level domain must be 2–63 letters only"). 
+Only when all criteria are satisfied will the function return isValid: true and error: null.
