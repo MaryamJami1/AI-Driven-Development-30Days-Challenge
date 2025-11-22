@@ -27,11 +27,11 @@ An MCP server gives Gemini CLI **extra tools** so it can *do real actions*, not 
 ### **3. The Problem**
 
 Gemini CLI **cannot build full agents on its own**.
-It has **weak agent-building support**, so making complete agents inside Gemini CLI becomes difficult and annoying.
+It has **weak agent building support**, so making complete agents inside Gemini CLI becomes difficult and annoying.
 
 ---
 
-### **4. The Solution — Context7**
+### **4. The Solution**
 
 There is a platform called **Context7**.
 It works as **one powerful MCP server**.
