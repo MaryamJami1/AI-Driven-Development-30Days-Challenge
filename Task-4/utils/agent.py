@@ -12,6 +12,13 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Try to import streamlit for secrets management (for Streamlit Cloud deployment)
+try:
+    import streamlit as st
+    STREAMLIT_AVAILABLE = True
+except ImportError:
+    STREAMLIT_AVAILABLE = False
+
 
 # =============================================================================
 # Pydantic Models for Structured Outputs
@@ -45,8 +52,29 @@ class QuizOutput(BaseModel):
 # Agent Configuration
 # =============================================================================
 
-gemini_api_key = os.getenv("GEMINI_API_KEY")
-gemini_base_url = os.getenv("Base_URL")
+def get_api_credentials():
+    """
+    Get API credentials from Streamlit secrets (for cloud deployment)
+    or environment variables (for local development).
+    """
+    if STREAMLIT_AVAILABLE and hasattr(st, 'secrets'):
+        try:
+            # Try to get from Streamlit secrets first (for cloud deployment)
+            gemini_api_key = st.secrets.get("GEMINI_API_KEY")
+            gemini_base_url = st.secrets.get("Base_URL")
+            if gemini_api_key and gemini_base_url:
+                return gemini_api_key, gemini_base_url
+        except Exception:
+            pass
+
+    # Fall back to environment variables (for local development)
+    gemini_api_key = os.getenv("GEMINI_API_KEY")
+    gemini_base_url = os.getenv("Base_URL")
+
+    return gemini_api_key, gemini_base_url
+
+# Get credentials
+gemini_api_key, gemini_base_url = get_api_credentials()
 
 external_client = AsyncOpenAI(
     api_key=gemini_api_key,
