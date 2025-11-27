@@ -1,0 +1,5 @@
+streamlit>=1.28.0
+openai-agents>=0.2.9
+pymupdf>=1.23.0
+pydantic>=2.5.0
+python-dotenv>=1.0.0
